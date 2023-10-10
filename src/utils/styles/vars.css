@@ -1,0 +1,16 @@
+:root {
+  /* Color */
+  --primary-color: #8f9fe4;
+  --second-color: #7164b4;
+  --hover-color: #7164b4;
+  --primary-text-color: #ffffff;
+  --second-text-color: #2b2b2b;
+  --error-color: #fc6470;
+  --char-count-color: #a7a7a7;
+  --not-active-color: #808080;
+
+  /* Modal */
+  --overlay-background-color: rgba(160, 160, 160, 0.5);
+  --modal-box-shadow: rgba(17, 17, 17, 0.1);
+  --modal-background-color: #ffffff;
+}
