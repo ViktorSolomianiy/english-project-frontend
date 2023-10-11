@@ -8,18 +8,30 @@ import { Button } from '../../common/Button/Button';
 
 export const Hero = () => {
   const [isOpened, setIsOpened] = useState(false);
+  const [animationModal, setAnimationModal] = useState(true);
 
   const handleToggleModal = () => setIsOpened(!isOpened);
 
   return (
     <Container>
       {isOpened && (
-        <Modal onCloseModal={handleToggleModal} isOpened={isOpened}>
-          <LessonForm onCloseModal={handleToggleModal} />
+        <Modal
+          onCloseModal={handleToggleModal}
+          isOpened={isOpened}
+          animationModalOnSubmit={animationModal}
+        >
+          <LessonForm onCloseModal={handleToggleModal} setAnimationModal={setAnimationModal} />
         </Modal>
       )}
 
-      <Button onClick={handleToggleModal}>Записатися на урок</Button>
+      <Button
+        onClick={() => {
+          setAnimationModal(true);
+          handleToggleModal();
+        }}
+      >
+        Записатися на урок
+      </Button>
     </Container>
   );
 };

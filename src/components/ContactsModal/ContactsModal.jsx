@@ -1,9 +1,18 @@
+import { useEffect } from 'react';
 import { ContactModal, Text, LinkList, Link } from './StyledContactsModal';
 
 import { FaTelegramPlane, FaPhoneAlt, FaInstagram } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 export const ContactsModal = ({ openContactsModal, handleOnOpen }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [handleOnOpen]);
+
   return (
     <ContactModal customBurgerIcon={false} isOpen={openContactsModal} onClose={handleOnOpen} right>
       <LinkList>

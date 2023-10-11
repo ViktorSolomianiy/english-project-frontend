@@ -5,7 +5,7 @@ import { Overlay, ModalStyled, CloseIcon } from './StyledModal';
 
 const modalRoot = document.getElementById('modal-root');
 
-export const Modal = ({ children, onCloseModal, isOpened }) => {
+export const Modal = ({ animationModalOnSubmit, children, onCloseModal, isOpened }) => {
   const [animationModal, setAnimationModal] = useState(isOpened);
 
   const closeModal = useCallback(() => {
@@ -13,7 +13,7 @@ export const Modal = ({ children, onCloseModal, isOpened }) => {
 
     setTimeout(() => {
       onCloseModal();
-    }, 300);
+    }, 250);
   }, [onCloseModal]);
 
   useEffect(() => {
@@ -42,7 +42,11 @@ export const Modal = ({ children, onCloseModal, isOpened }) => {
   };
 
   return createPortal(
-    <Overlay onClick={handleOverlayClick} animationModal={animationModal}>
+    <Overlay
+      onClick={handleOverlayClick}
+      animationModal={animationModal}
+      animationModalOnSubmit={animationModalOnSubmit}
+    >
       <ModalStyled>
         <CloseIcon onClick={closeModal} />
         {children}

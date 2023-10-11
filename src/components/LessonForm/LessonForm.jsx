@@ -21,13 +21,21 @@ import { FiMail } from 'react-icons/fi';
 import { sendEmailFormSchema } from '../../utils/schemas/sendEmailFormSchema';
 import { sendEmail } from '../../services/api/api';
 
-export const LessonForm = ({ onCloseModal }) => {
+export const LessonForm = ({ onCloseModal, setAnimationModal }) => {
   const [openErrorMessage, setOpenErrorMessage] = useState(false);
   const [errorField, setErrorField] = useState(false);
   const [maxSymbolDesc, setMaxSymbolDesc] = useState(false);
   const [heplerTextPhone, setHeplerTextPhone] = useState(false);
   const [heplerTextEmail, setHeplerTextEmail] = useState(false);
   const [charCount, setCharCount] = useState(0);
+
+  const closeModal = () => {
+    setAnimationModal(false);
+
+    setTimeout(() => {
+      onCloseModal();
+    }, 250);
+  };
 
   const { handleSubmit, handleChange, setValues, values, errors, isSubmitting } = useFormik({
     initialValues: {
@@ -48,7 +56,8 @@ export const LessonForm = ({ onCloseModal }) => {
 
       sendEmail(value);
       toast.success('Данні відправлено!');
-      onCloseModal();
+
+      closeModal();
     },
   });
   const { name, email, phone, description } = values;

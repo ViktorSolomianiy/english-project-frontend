@@ -7,8 +7,6 @@ import { LessonForm } from '../LessonForm/LessonForm';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  console.log(123);
-
   return (
     <div>
       <Header />

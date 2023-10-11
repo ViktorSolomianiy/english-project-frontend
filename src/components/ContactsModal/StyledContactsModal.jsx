@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { slide as Menu } from 'react-burger-menu';
 
 export const ContactModal = styled(Menu)`
+  position: fixed;
   width: 100%;
   max-width: 60%;
   background-color: var(--modal-background-color);

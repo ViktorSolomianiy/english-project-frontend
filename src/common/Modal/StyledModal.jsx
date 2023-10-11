@@ -25,8 +25,9 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  opacity: ${props => (props.animationModal ? 1 : 0)};
-  visibility: ${props => (props.animationModal ? 'visible' : 'hidden')};
+  opacity: ${props => (props.animationModal && props.animationModalOnSubmit ? 1 : 0)};
+  visibility: ${props =>
+    props.animationModal && props.animationModalOnSubmit ? 'visible' : 'hidden'};
   top: 0;
   left: 0;
   width: 100%;
@@ -34,7 +35,8 @@ export const Overlay = styled.div`
   background-color: rgba(161, 161, 161, 0.5);
   z-index: 1200;
   transition: opacity 300ms ease, visibility 300ms ease;
-  animation: ${props => (props.animationModal ? fadeIn : fadeOut)} 300ms ease;
+  animation: ${props => (props.animationModal && props.animationModalOnSubmit ? fadeIn : fadeOut)}
+    300ms ease;
 `;
 
 export const ModalStyled = styled.div`
